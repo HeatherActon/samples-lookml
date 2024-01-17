@@ -26,10 +26,7 @@ view: +wp_postmeta {
     label: "Meta (date)"
     type: date
     convert_tz: no
-    #sql:CAST(${meta_value} as DATE FORMAT 'YYYY-MM-DD');;
-    #sql:${meta_value};;
-    #sql: PARSE_DATETIME("%Y-%M-%D %H:%M:%S", ${meta_value}) ;;
-    #sql: FORMAT_DATE('%b-%d-%Y', DATE (${meta_value})) ;;
+    
     sql: IF( ${meta_value} != '0', LEFT(${meta_value}, 10), '2000-01-01' ) ;;
   }
 
